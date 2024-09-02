@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script displays all active IPv4 IP addresses on the machine.
+
+# Use `ip` command to list active network interfaces and extract the IPv4 addresses
+ip -4 -o addr show | awk '{print $4}' | cut -d/ -f1
