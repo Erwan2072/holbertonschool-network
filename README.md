@@ -157,5 +157,3 @@ Write a Bash script that pings an IP address passed as an argument.
 - The second line of all your Bash scripts should be a comment explaining what the script is doing.
 
 ---
-
-This README provides an overview of your project, with collapsible sections for each task that can be expanded as needed.
