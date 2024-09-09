@@ -1,0 +1,64 @@
+https://medium.com/@8687/what-happens-when-you-type-https-www-google-com-in-your-browser-and-press-enter-836bc0d73615
+
+
+
+What Happens When You Type https://www.google.com in Your Browser and Press Enter?
+When you type https://www.google.com into your browser and press Enter, a series of events occur in the background that connects you to Google’s website. This process involves numerous components of the network infrastructure and uses several communication protocols to deliver the requested web page. Let's go through each step of this process in detail.
+
+1. DNS Request (Domain Name System)
+The first step is to convert the domain name www.google.com into an IP address that the computer can understand. Here’s how this works:
+
+The browser first checks its own DNS cache to see if it already has the IP address for www.google.com.
+If the IP address is not found, the browser asks the operating system, which also may have its own DNS cache.
+If the IP address is still not found, a request is sent to the DNS resolver of the Internet Service Provider (ISP). This DNS resolver then queries a series of DNS servers:
+Root DNS servers are contacted first. They direct the request to the top-level domain (TLD) servers, such as .com.
+Next, the TLD server directs the request to the authoritative name server for google.com, which provides the actual IP address of www.google.com.
+Once the IP address is obtained, the browser can proceed to the next step.
+2. TCP/IP Connection (Transmission Control Protocol/Internet Protocol)
+With the IP address of www.google.com, the browser initiates a TCP connection to the server at that IP address.
+
+The TCP connection starts with a three-way handshake to establish a reliable connection between the user’s computer (the client) and Google's server. This occurs in three steps:
+The client sends a SYN (synchronize) packet to the server.
+The server responds with a SYN-ACK (synchronize-acknowledge) packet.
+The client sends an ACK (acknowledge) packet to confirm the connection.
+Once the connection is established, data can be exchanged reliably between the client and the server.
+3. Firewall
+As the TCP connection is being established, firewalls on both the client’s and server’s networks inspect incoming and outgoing packets.
+
+Client-side Firewall: Protects the user’s computer from unauthorized or malicious connections.
+Server-side Firewall: Filters incoming packets to allow only legitimate and authorized traffic. Firewalls can block certain types of unwanted or malicious traffic based on predefined security rules.
+4. HTTPS/SSL (Hypertext Transfer Protocol Secure/ Secure Sockets Layer)
+Since the URL uses https, it indicates that the connection must be secure.
+
+The browser initiates an SSL/TLS handshake to establish a secure connection with the server. Here are the key steps in this negotiation:
+The browser sends a request to the server to initiate a secure connection.
+The server responds with an SSL/TLS certificate that proves its identity.
+The browser verifies the validity of the certificate by comparing it with a list of trusted certificates (from certificate authorities).
+If the certificate is valid, the browser and server exchange keys to encrypt the data being exchanged.
+Once the SSL connection is established, all communications between the client and the server are encrypted, ensuring privacy and data integrity.
+5. Load Balancer
+When the request reaches Google's network, it typically passes through a load balancer.
+
+The load balancer distributes incoming traffic among multiple backend servers to ensure no single server is overwhelmed.
+This helps improve performance, scalability, and availability of the service.
+The load balancer can use different balancing strategies, such as round-robin, session persistence, or health-based distribution.
+6. Web Server
+After passing through the load balancer, the request reaches a web server.
+
+The web server (such as Apache, Nginx) receives the HTTP or HTTPS request.
+If the request is for a static file (such as an image, CSS, or JavaScript file), the web server can serve this file directly to the client.
+If the request requires dynamic processing (like running scripts or querying a database), the web server forwards it to the application server.
+7. Application Server
+The application server is responsible for the business logic.
+
+It handles dynamic requests by executing backend code (such as Java, Python, PHP, etc.).
+The application server may also interact with a database to fetch, modify, or store data.
+Once processing is complete, it sends a response (usually an HTML page) back to the web server.
+8. Database
+If the request requires data, the application server interacts with a database.
+
+The database stores all the critical information for the website, such as user data, content, configurations, etc.
+The application server sends an SQL query to the database to retrieve or update data.
+The results are sent back to the application server, which uses them to generate an appropriate response.
+Conclusion
+After all these steps are completed, the final response is sent from the application server to the web server, and then back to the user’s browser. The browser interprets the HTML, CSS, and JavaScript and displays the www.google.com web page to the user. This entire process usually takes less than a second, but it involves a complex series of technical steps and communication protocols that ensure a fast, secure, and reliable connection.
